@@ -1,0 +1,212 @@
+Machine Learning Algorithms Implemented From Scratch
+1. Introduction
+
+The objective of this project is to design and implement a custom machine learning library by developing multiple machine learning algorithms entirely from scratch, without using any high-level machine learning frameworks such as Scikit-Learn, TensorFlow, or PyTorch. Only fundamental numerical and data-handling libraries such as NumPy, Pandas, and Matplotlib were used.
+
+The project focuses on understanding the internal working principles of machine learning algorithms, including optimization, loss functions, gradient descent, and data preprocessing techniques. Each model was trained using provided training datasets and evaluated using separate test datasets to validate correctness and generalization performance.
+
+2. Libraries and Tools Used
+
+The following libraries were used as permitted:
+
+NumPy – Numerical computations, matrix operations, and optimization
+
+Pandas – Data loading, cleaning, and preprocessing
+
+Matplotlib – Visualization of loss curves and predictions
+
+Google Colab – Development and execution environment
+
+No external machine learning libraries were used.
+
+3. Dataset Description
+
+Multiple datasets were provided, each corresponding to a different learning task:
+
+Dataset	Task Type
+linear_train.csv, linear_test.csv	Linear Regression
+poly_train.csv, poly_test.csv	Polynomial Regression
+binary_train.csv, binary_test.csv	Binary Classification
+multiclass_train.csv, multiclass_test.csv	Multiclass Classification (Neural Network)
+
+Each dataset was split into:
+
+Training set – used exclusively for learning model parameters
+
+Test set – used only for final evaluation and submission
+
+4. Data Preprocessing
+4.1 Handling Missing Values
+
+Rows containing missing target labels were removed, as supervised learning models require valid labels.
+
+4.2 Feature Normalization
+
+Feature normalization was implemented manually to improve convergence during training.
+Normalization parameters (mean and standard deviation) were computed only on training data and reused for test data to prevent data leakage.
+
+𝑋
+𝑛
+𝑜
+𝑟
+𝑚
+=
+𝑋
+−
+𝜇
+𝜎
+X
+norm
+	​
+
+=
+σ
+X−μ
+	​
+
+
+This ensured fair and unbiased evaluation.
+
+4.3 Label Encoding
+
+For multiclass classification:
+
+Labels were encoded into integers
+
+One-hot encoding was applied using NumPy
+
+5. Algorithms Implemented
+5.1 Linear Regression
+
+Implemented using gradient descent
+
+Mean Squared Error (MSE) used as the loss function
+
+Model parameters updated iteratively to minimize loss
+
+Evaluation Metric: Mean Squared Error (MSE)
+
+5.2 Polynomial Regression
+
+Polynomial feature expansion implemented manually
+
+Normalization applied after feature expansion
+
+Gradient descent used for optimization
+
+Evaluation Metric: Mean Squared Error (MSE)
+
+5.3 Logistic Regression (Binary Classification)
+
+Sigmoid activation function implemented
+
+Binary Cross-Entropy loss used
+
+Gradient descent optimization
+
+Evaluation Metric: Accuracy
+
+5.4 K-Nearest Neighbors (KNN)
+
+Distance-based classification using Euclidean distance
+
+No training phase (lazy learning)
+
+Majority voting for prediction
+
+Evaluation Metric: Accuracy
+
+5.5 K-Means Clustering
+
+Random centroid initialization
+
+Iterative centroid updates until convergence
+
+Unsupervised learning approach
+
+5.6 Decision Tree
+
+Implemented using entropy and information gain
+
+Recursive splitting of nodes
+
+Manual stopping conditions applied
+
+5.7 Neural Network (Multiclass Classification)
+
+A fully connected N-layer Neural Network was implemented from scratch with:
+
+Forward propagation
+
+Backpropagation
+
+Weight initialization (Xavier / He)
+
+Optimizers:
+
+Momentum
+
+RMSProp
+
+Adam
+
+Activation functions: ReLU, Softmax
+
+One-hot encoded targets
+
+Evaluation Metric: Accuracy
+
+6. Training and Evaluation Strategy
+
+Models were trained only on training datasets
+
+Test datasets were never used during training or hyperparameter tuning
+
+Preprocessing steps were consistent across training and test data
+
+Performance was evaluated using appropriate metrics for each task
+
+This ensured a fair and unbiased evaluation of model generalization.
+
+7. Results
+Model	Metric	Test Performance
+Linear Regression	MSE	Reported
+Polynomial Regression	MSE	Reported
+Logistic Regression	Accuracy	Reported
+Neural Network	Accuracy	Reported
+
+(Exact values depend on dataset and training parameters.)
+
+8. Submission Files
+
+For each dataset, predictions were saved in CSV format:
+
+linear_submission.csv
+
+binary_submission.csv
+
+poly_submission.csv
+
+multiclass_submission.csv
+
+Each submission file contains:
+
+id, prediction
+
+9. Challenges Faced
+
+Handling normalization consistently across train and test datasets
+
+Managing polynomial feature dimensionality
+
+Preventing data leakage
+
+Debugging broadcasting and shape mismatch errors
+
+Implementing backpropagation and optimizers from scratch
+
+All challenges were resolved through systematic debugging and validation.
+
+10. Conclusion
+
+This project provided deep insight into the internal workings of machine learning algorithms. Implementing models from scratch strengthened understanding of optimization, loss functions, gradient descent, and data preprocessing. The models were successfully trained and evaluated using only foundational libraries, demonstrating correctness and robustness.
